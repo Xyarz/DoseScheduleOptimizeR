@@ -6,7 +6,7 @@ library(gridExtra)
 
 ui <- fluidPage(
   # Application title
-  titlePanel("Difference in Proportion Simulation"),
+  titlePanel("Dose Schedule Finding Simulation"),
 
   # Sidebar with a slider input for number of bins
   sidebarLayout(
