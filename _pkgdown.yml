@@ -1,5 +1,5 @@
 ---
-url: https://insightsengineering.github.io/bsafe/
+url: https://xyarz.github.io/DoseScheduleOptimizeR/
 
 template:
   bootstrap: 5
@@ -17,7 +17,7 @@ navbar:
     github:
       icon: fa-github
       aria-label: View on Github
-      href: https://github.com/Xyarz/DoseScheduleOptimizeR
+      href: https://github.com/xyarz/DoseScheduleOptimizeR
 
   articles:
       - title: Getting Started

@@ -6,8 +6,8 @@ Authors@R: c(
   )
 Description: Dose-Schedule Finding Optimization, Simulation based approach
 License: Apache License (>= 2)
-URL: https://Xyarz.github.io/DoseScheduleOptimizeR/, https://github.com/Xyarz/DoseScheduleOptimizeR
-BugReports: https://github.com/Xyarz/DoseScheduleOptimizeR/issues
+URL: https://xyarz.github.io/DoseScheduleOptimizeR/, https://github.com/xyarz/DoseScheduleOptimizeR
+BugReports: https://github.com/xyarz/DoseScheduleOptimizeR/issues
 Depends:
     R (>= 4.2)
 Imports:
