@@ -1,45 +1,16 @@
-library(coda)
-library(rjags)
-library(DoseFinding)
-library(tidyverse)
-
-
-n_matrix <- matrix(
-  c(
-    0, 0, 15,
-    0, 15, 0,
-    15, 0, 15
-  ),
-  nrow = 3, byrow = TRUE
-)
-colnames(n_matrix) <- c(2, 4, 6)
-rownames(n_matrix) <- c(0, 3, 5)
-
-full_fac_mat <- matrix(
-  c(
-    6, 7, 6,
-    7, 6, 7,
-    7, 7, 7
-  ),
-  nrow = 3, byrow = TRUE
-)
-colnames(full_fac_mat) <- c(2, 4, 6)
-rownames(full_fac_mat) <- c(0, 3, 5)
 
 #' Title
 #'
-#' @param data_mat
-#' @param initial_beta0
-#' @param initial_beta1
-#' @param initial_beta2
-#' @param initial_beta3
-#' @param initial_sigma_mu
-#' @param initial_sigma_sd
+#' @param data_mat tbd
+#' @param initial_beta0 tbd
+#' @param initial_beta1 tbd
+#' @param initial_beta2 tbd
+#' @param initial_beta3 tbd
+#' @param initial_sigma_mu tbd
+#' @param initial_sigma_sd tbd
 #'
-#' @return
+#' @return tbd
 #' @export
-#'
-#' @examples
 gen_likelihood_data_linear <- function(
     data_mat,
     beta0,
@@ -84,23 +55,18 @@ gen_likelihood_data_linear <- function(
 
 #' Title
 #'
-#' @param data_mat
-#' @param initial_E0
-#' @param initial_alpha1
-#' @param initial_alpha2
-#' @param initial_delta1
-#' @param initial_delta2
-#' @param initial_beta
-#' @param initial_sigma_mu
-#' @param initial_sigma_sd
+#' @param data_mat  tbd
+#' @param initial_E0 tbd
+#' @param initial_alpha1 tbd
+#' @param initial_alpha2 tbd
+#' @param initial_delta1 tbd
+#' @param initial_delta2 tbd
+#' @param initial_beta tbd
+#' @param initial_sigma_mu tbd
+#' @param initial_sigma_sd tbd
 #'
-#' @return
+#' @return tbd
 #' @export
-#'
-#' @examples
-
-# doses = c(0, 4, 5, 6, 9),
-# schedules = c(5, 6, 8),
 gen_likelihood_data_emax <- function(
     data_mat,
     E0,
@@ -148,16 +114,14 @@ gen_likelihood_data_emax <- function(
 
 #' Title
 #'
-#' @param data
-#' @param n_chain
-#' @param n_burn
-#' @param n_sample
-#' @param n_thin
+#' @param data tbd
+#' @param n_chain tbd
+#' @param n_burn tbd
+#' @param n_sample tbd
+#' @param n_thin tbd
 #'
-#' @return
+#' @return tbd
 #' @export
-#'
-#' @examples
 linear <- function(
     data = n_matrix,
     doses,
@@ -250,6 +214,22 @@ model {
   return(res)
 }
 
+#' Title
+#'
+#' @param E0  tbd
+#' @param alpha1  tbd
+#' @param alpha2  tbd
+#' @param beta  tbd
+#' @param delta1  tbd
+#' @param delta2  tbd
+#' @param efficacy_threshold  tbd
+#' @param doses  tbd
+#' @param schedules  tbd
+#' @param med  tbd
+#' @param obs_effect  tbd
+#'
+#' @return tbd
+#' @export
 calculate_MED_emax <- function(E0, alpha1, alpha2, beta, delta1, delta2, efficacy_threshold, doses,
                           schedules, med, obs_effect) {
 
@@ -285,6 +265,20 @@ calculate_MED_emax <- function(E0, alpha1, alpha2, beta, delta1, delta2, efficac
   return(med)
 }
 
+#' Title
+#'
+#' @param beta0  tbd
+#' @param beta1  tbd
+#' @param beta2  tbd
+#' @param beta3  tbd
+#' @param efficacy_threshold  tbd
+#' @param doses  tbd
+#' @param schedules  tbd
+#' @param med  tbd
+#' @param obs_effect  tbd
+#'
+#' @return tbd
+#' @export
 calculate_MED_linear <- function(beta0, beta1, beta2, beta3, efficacy_threshold, doses,
                                schedules, med, obs_effect) {
 
@@ -320,6 +314,21 @@ calculate_MED_linear <- function(beta0, beta1, beta2, beta3, efficacy_threshold,
   return(med)
 }
 
+#' Title
+#'
+#' @param data  tbd
+#' @param doses  tbd
+#' @param schedules  tbd
+#' @param n_chain  tbd
+#' @param n_burn  tbd
+#' @param n_sample  tbd
+#' @param n_thin  tbd
+#' @param n_pat  tbd
+#' @param efficacy_threshold  tbd
+#' @param likelihood_data  tbd
+#'
+#' @return  tbd
+#' @export
 emax <- function(
     data = n_matrix,
     doses,

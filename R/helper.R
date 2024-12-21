@@ -1,3 +1,10 @@
+#' Title
+#'
+#' @param samples  tbd
+#' @param quantile  tbd
+#'
+#' @return quantiles  tbd
+#' @export
 get_post_for_quantile_samples_linear <- function(samples, quantile = 0.5) {
   quantiles <- list(
     beta0 = quantile(attributes(samples)$samples[, 1], prob = quantile),
@@ -9,6 +16,13 @@ get_post_for_quantile_samples_linear <- function(samples, quantile = 0.5) {
   return(quantiles)
 }
 
+#' Title
+#'
+#' @param samples  tbd
+#' @param quantile  tbd
+#'
+#' @return quantiles  tbd
+#' @export
 get_post_for_quantile_samples_emax <- function(samples, quantile = 0.5) {
   quantiles <- list(
     E0 = quantile(attributes(samples)$samples[, 1], prob = quantile),
@@ -22,6 +36,14 @@ get_post_for_quantile_samples_emax <- function(samples, quantile = 0.5) {
   return(quantiles)
 }
 
+#' Title
+#'
+#' @param all_mcmc  tbd
+#' @param w_prior  tbd
+#' @param data  tbd
+#'
+#' @return list
+#' @export
 get_bayesfactor <- function(all_mcmc, w_prior = c(1 / 2, 1 / 2), data) {
   etas <- vapply(
     all_mcmc,
@@ -39,6 +61,13 @@ get_bayesfactor <- function(all_mcmc, w_prior = c(1 / 2, 1 / 2), data) {
   return(list(w_prior = w_prior, w_post = w_post))
 }
 
+#' Title
+#'
+#' @param x  tbd
+#' @param post_samples  tbd
+#'
+#' @return numeric
+#' @export
 epll <- function(x, post_samples) {
   sum_log_probs <- dnorm(
     x,
@@ -52,6 +81,13 @@ epll <- function(x, post_samples) {
   return(sum_log_probs)
 }
 
+#' Title
+#'
+#' @param epll  tbd
+#' @param q  tbd
+#'
+#' @return eta
+#' @export
 get_eta <- function(epll, q) {
   eta <- epll - q / 2
   return(eta)
@@ -60,15 +96,13 @@ get_eta <- function(epll, q) {
 
 #' Title
 #'
-#' @param doses
-#' @param schedules
-#' @param lb
-#' @param threshold
+#' @param doses tbd
+#' @param schedules tbd
+#' @param lb tbd
+#' @param threshold tbd
 #'
-#' @return
+#' @return list
 #' @export
-#'
-#' @examples
 get_MED_CRE <- function(doses, schedules, lb, threshold) {
   lb <- get_resp(doses, schedules, lb, emax = FALSE, n_pat = 68)
   lb_above_threshold <- FALSE
@@ -84,15 +118,13 @@ get_MED_CRE <- function(doses, schedules, lb, threshold) {
 
 #' @title get_resp
 #'
-#' @param doses
-#' @param schedules
-#' @param quantiles
-#' @param emax
+#' @param doses tbd
+#' @param schedules tbd
+#' @param quantiles tbd
+#' @param emax tbd
 #'
-#' @return
+#' @return resp
 #' @export
-#'
-#' @examples
 get_resp <- function(doses, schedules, quantiles, emax = FALSE, n_pat, patient_data) {
   res <- list()
   L <- numeric(length = n_pat)
@@ -123,6 +155,17 @@ get_resp <- function(doses, schedules, quantiles, emax = FALSE, n_pat, patient_d
   return(res)
 }
 
+#' Title
+#'
+#' @param design  tbd
+#' @param doses  tbd
+#' @param schedules  tbd
+#' @param n_pat  tbd
+#' @param likelihood  tbd
+#' @param threshold  tbd
+#'
+#' @return design
+#' @export
 analysis_linear <- function(design, doses, schedules, n_pat, likelihood, threshold) {
   post_samples_design <- linear(data = design, n_pat = n_pat, doses = doses, schedules = schedules, efficacy_threshold = threshold, likelihood = likelihood)
   med_linear <- attributes(post_samples_design)$MED
@@ -136,6 +179,17 @@ analysis_linear <- function(design, doses, schedules, n_pat, likelihood, thresho
   return(response_design)
 }
 
+#' Title
+#'
+#' @param design  tbd
+#' @param doses  tbd
+#' @param schedules  tbd
+#' @param n_pat  tbd
+#' @param likelihood  tbd
+#' @param threshold  tbd
+#'
+#' @return design
+#' @export
 analysis_emax <- function(design, doses, schedules, n_pat, likelihood, threshold) {
   post_samples_design <- emax(data = design, n_pat = n_pat, doses = doses, schedules = schedules, efficacy_threshold = threshold, likelihood = likelihood)
   med_emax <- attributes(post_samples_design)$MED

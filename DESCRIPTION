@@ -12,18 +12,24 @@ Depends:
     R (>= 4.2)
 Imports:
     checkmate,
-    AlgDesign
+    AlgDesign,
+    tidyverse,
+    tibble,
+    coda,
+    rjags,
+    shiny,
+    DoseFinding,
+    gt,
+    reshape2,
+    gridExtra,
+    grDevices,
+    stats
 Suggests:
     quarto,
     dplyr,
     kableExtra,
     knitr,
     testthat (>= 3.0.0),
-    tibble,
-    coda,
-    rjags,
-    DoseFinding,
-    shiny
 VignetteBuilder: quarto
 Config/testthat/edition: 3
 Encoding: UTF-8

@@ -1,0 +1,27 @@
+---
+title: "Dose-Schedule Finding"
+author:
+  - name: Lars Andersen
+date: "`r Sys.Date()`"
+format:
+  html:
+    embed-resources: true
+    theme: cosmo
+    number-sections: true
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    code_folding: hide
+    code-copy: true
+
+vignette: >
+  %\VignetteIndexEntry{Dose-Schedule Finding}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+---
+
+\newpage
+
+# **Background**
+Dose-Schedule Finding
+

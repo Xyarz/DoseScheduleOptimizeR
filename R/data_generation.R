@@ -1,17 +1,12 @@
-library(tidyverse)
-library(AlgDesign)
-
 
 #' Title
 #'
-#' @param doses
-#' @param schedules
-#' @param n_pat
+#' @param doses tbd
+#' @param schedules tbd
+#' @param n_pat tbd
 #'
-#' @return
+#' @return matrix
 #' @export
-#'
-#' @examples
 generate_full_factorial_design <- function(
     doses,
     schedules,
@@ -53,16 +48,14 @@ generate_full_factorial_design <- function(
 
 #' Title
 #'
-#' @param doses
-#' @param schedules
-#' @param n_pat
-#' @param criterion
-#' @param random_order
+#' @param doses tbd
+#' @param schedules tbd
+#' @param n_pat tbd
+#' @param criterion tbd
+#' @param random_order tbd
 #'
-#' @return
+#' @return matrix
 #' @export
-#'
-#' @examples
 generate_optimal_design_linear <- function(
     doses,
     schedules,
@@ -113,6 +106,21 @@ generate_optimal_design_linear <- function(
 }
 
 
+#' Title
+#'
+#' @param doses  tbd
+#' @param schedules  tbd
+#' @param n_pat  tbd
+#' @param criterion  tbd
+#' @param random_order  tbd
+#' @param emax_d  tbd
+#' @param ed50_d  tbd
+#' @param emax_s  tbd
+#' @param ed50_s  tbd
+#' @param interaction  tbd
+#'
+#' @return matrix
+#' @export
 generate_optimal_design_emax <- function(
     doses,
     schedules,
@@ -167,6 +175,14 @@ generate_optimal_design_emax <- function(
 }
 
 
+#' Title
+#'
+#' @param doses  tbd
+#' @param schedules  tbd
+#' @param n_pat  tbd
+#'
+#' @return matrix
+#' @export
 generate_custom_corner_mid <- function(
     doses,
     schedules,
@@ -217,6 +233,14 @@ generate_custom_corner_mid <- function(
   return(mat)
 }
 
+#' Title
+#'
+#' @param doses  tbd
+#' @param schedules  tbd
+#' @param n_pat  tbd
+#'
+#' @return matrix
+#' @export
 generate_custom <- function(
     doses,
     schedules,
@@ -267,6 +291,13 @@ generate_custom <- function(
   return(mat)
 }
 
+#' Title
+#'
+#' @param n_pat  tbd
+#' @param post_probs  tbd
+#'
+#' @return matrix
+#' @export
 generate_custom_design <- function(
     n_pat,
     post_probs

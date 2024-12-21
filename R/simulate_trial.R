@@ -1,3 +1,28 @@
+#' simulate_final_trial
+#'
+#' @param scenario_label the label
+#' @param doses tbd
+#' @param schedules tbd
+#' @param threshold tbd
+#' @param alloc_mat tbd
+#' @param n_pat tbd
+#' @param interim tbd
+#' @param likelihood tbd
+#' @param E0 tbd
+#' @param alpha1 tbd
+#' @param alpha2 tbd
+#' @param delta1 tbd
+#' @param delta2 tbd
+#' @param beta tbd
+#' @param sig_mu tbd
+#' @param sig_sd tbd
+#' @param beta0 tbd
+#' @param beta1 tbd
+#' @param beta2 tbd
+#' @param beta3 tbd
+#'
+#' @return df
+#' @export
 simulate_final_trial <- function(
     scenario_label = "null",
     doses = c(0, 4, 5, 6, 9),

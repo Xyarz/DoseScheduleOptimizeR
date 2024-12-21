@@ -1,6 +1,6 @@
 
 #  Table of parameters for targets
-scenarios_table <- tribble(
+scenarios_table <- tibble::tribble(
   ~scenario_label, ~doses, ~schedules, ~threshold, ~alloc_mat, ~n_pat, ~interim, ~likelihood, ~E0, ~alpha1, ~alpha2, ~delta1, ~delta2, ~beta, ~sig_mu, ~sig_sd, ~beta0, ~beta1, ~beta2, ~beta3,
   "viable_no_interim", c(0, 4, 5, 6, 9), c(1, 3, 4), 8, 1, 200, FALSE, "linear", -12.8, 10, 10, 3, 1, 0, 1, 1, -12.8, 0.9, 0.9, 0,
   "viable_no_interim", c(0, 4, 5, 6, 9), c(1, 3, 4), 8, 1, 200, FALSE, "emax", -12.8, 10, 10, 3, 1, 0, 1, 1, -12.8, 0.9, 0.9, 0,
@@ -101,6 +101,12 @@ scenarios_table <- tribble(
 )
 
 # scenario generating function - add each scenario here
+#' Title
+#'
+#' @param scenario_label  tbd
+#'
+#' @return df
+#' @export
 get_scenario <- function(scenario_label) {
   if (scenario_label == "viable_no_interim") {
     return(viable_no_interim$scenario)
