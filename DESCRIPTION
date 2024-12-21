@@ -1,0 +1,33 @@
+Package: DoseScheduleOptimizeR
+Title: Simulation based comparison of Dose-Schedule Grid Designs
+Version: 1.0.2
+Authors@R: c(
+    person("Lars", "Andersen", , "lars-andersen@gmx.de", role = c("aut", "cre"))
+  )
+Description: Dose-Schedule Finding Optimization, Simulation based approach
+License: Apache License (>= 2)
+URL: https://Xyarz.github.io/DoseScheduleOptimizeR/, https://github.com/Xyarz/DoseScheduleOptimizeR
+BugReports: https://github.com/Xyarz/DoseScheduleOptimizeR/issues
+Depends:
+    R (>= 4.2)
+Imports:
+    checkmate,
+    AlgDesign
+Suggests:
+    quarto,
+    dplyr,
+    kableExtra,
+    knitr,
+    testthat (>= 3.0.0),
+    tibble,
+    coda,
+    rjags,
+    DoseFinding,
+    shiny
+VignetteBuilder: quarto
+Config/testthat/edition: 3
+Encoding: UTF-8
+Language: en-US
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
