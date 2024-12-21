@@ -94,16 +94,16 @@ simulate_final_trial <- function(
     }
 
     n_pat_interim <- n_pat * 0.5
-      matrix <- readRDS(paste0("data/alloc_mat",alloc_mat,".RDS"))
 
-      d_opt_design_linear <- as.matrix(matrix[[1]][[1]])
-      d_opt_design_emax <- as.matrix(matrix[[1]][[2]])
-      i_opt_design_linear <- as.matrix(matrix[[1]][[3]])
-      i_opt_design_emax <- as.matrix(matrix[[1]][[4]])
+      d_opt_design_linear <- generate_optimal_design_linear(doses = doses, schedules = schedules, n_pat = n_pat_interim)$mat
+      d_opt_design_emax <- generate_optimal_design_emax(doses = doses, schedules = schedules,n_pat = n_pat_interim,
+                                                        emax_d = alpha1, ed50_d = delta1, emax_s = alpha2, ed50_s = delta2)$mat
+      i_opt_design_linear <- generate_optimal_design_linear(doses = doses, schedules = schedules,n_pat = n_pat_interim,criterion = "I")$mat
+      i_opt_design_emax <- generate_optimal_design_emax(doses = doses, schedules = schedules,n_pat = n_pat_interim,criterion = "I",
+                                                        emax_d = alpha1, ed50_d = delta1, emax_s = alpha2, ed50_s = delta2)$mat
 
 
     comp_design <- generate_custom_corner_mid(n_pat = n_pat_interim, doses = doses, schedules = schedules)
-    # comp_alt_design <- generate_custom_corner_mid(n_pat = n_pat)
 
 
     full_factorial_interim <- generate_full_factorial_design(
@@ -404,15 +404,8 @@ simulate_final_trial <- function(
     rownames(ff_interim_emax) <- doses
     colnames(ff_interim_emax) <- schedules
 
-    # full_factorial_linear <- generate_custom_design(n_pat, post_probs = interim$linear[[1]]$ff_MED)
-    # rownames(full_factorial_linear) <- doses
-    # colnames(full_factorial_linear) <- schedules
-    # full_factorial_emax <- generate_custom_design(n_pat, post_probs = interim$emax[[1]]$ff_MED)
-    # rownames(full_factorial_emax) <- doses
-    # colnames(full_factorial_emax) <- schedules
 
     res_ff_linear <- analysis_linear(
-      # design = full_factorial_linear,
       design = full_factorial,
       doses = doses,
       schedules = schedules,
@@ -556,19 +549,13 @@ simulate_final_trial <- function(
     mats[["ff_interim_emax"]] <- ff_interim_emax
   } else {
     comp_design <- generate_custom_corner_mid(n_pat = n_pat, doses = doses, schedules = schedules)
-    if(interim) {
-      matrix <- readRDS(paste0("data/alloc_mat",alloc_mat,".RDS"))
-      d_opt_design_linear <- as.matrix(matrix[[2]][[1]])
-      d_opt_design_emax <- as.matrix(matrix[[2]][[2]])
-      i_opt_design_linear <- as.matrix(matrix[[2]][[3]])
-      i_opt_design_emax <- as.matrix(matrix[[2]][[4]])
-    } else {
-      matrix <- readRDS(paste0("data/alloc_mat_no_interim",alloc_mat,".RDS"))
-      d_opt_design_linear <- as.matrix(matrix[[1]])
-      d_opt_design_emax <- as.matrix(matrix[[2]])
-      i_opt_design_linear <- as.matrix(matrix[[3]])
-      i_opt_design_emax <- as.matrix(matrix[[4]])
-    }
+    d_opt_design_linear <- generate_optimal_design_linear(doses = doses, schedules = schedules, n_pat = n_pat)$mat
+    d_opt_design_emax <- generate_optimal_design_emax(doses = doses, schedules = schedules,n_pat = n_pat,
+                                                      emax_d = alpha1, ed50_d = delta1, emax_s = alpha2, ed50_s = delta2)$mat
+    i_opt_design_linear <- generate_optimal_design_linear(doses = doses, schedules = schedules,n_pat = n_pat,criterion = "I")$mat
+    i_opt_design_emax <- generate_optimal_design_emax(doses = doses, schedules = schedules,n_pat = n_pat,criterion = "I",
+                                                      emax_d = alpha1, ed50_d = delta1, emax_s = alpha2, ed50_s = delta2)$mat
+
 
 
 
