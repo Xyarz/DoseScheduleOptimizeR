@@ -188,11 +188,20 @@ get_MED_alloc <- function(results, scenario, mat) {
     schedules = results[[scenario]]$schedules[[1]],
     n_pat = results[[scenario]]$n_pat[[1]] * 0.5
   )
-  matrix <- readRDS(paste0("../ma-thesis-sims/data/alloc_mat",mat,".RDS"))
-  d_opt_design_linear <- as.matrix(matrix[[1]][[1]])
-  d_opt_design_emax <- as.matrix(matrix[[1]][[2]])
-  i_opt_design_linear <- as.matrix(matrix[[1]][[3]])
-  i_opt_design_emax <- as.matrix(matrix[[1]][[4]])
+
+  alpha1 <- results[[scenario]]$alpha1[[1]]
+  alpha2 <- results[[scenario]]$alpha2[[1]]
+  delta1 <- results[[scenario]]$delta1[[1]]
+  delta2 <- results[[scenario]]$delta2[[1]]
+  n_pat <- results[[scenario]]$n_pat[[1]] * 0.5
+  d_opt_design_linear <- generate_optimal_design_linear(doses = doses, schedules = schedules, n_pat = n_pat)$mat
+  d_opt_design_emax <- generate_optimal_design_emax(doses = doses, schedules = schedules,n_pat = n_pat,
+                                                    emax_d = alpha1, ed50_d = delta1, emax_s = alpha2, ed50_s = delta2)$mat
+  i_opt_design_linear <- generate_optimal_design_linear(doses = doses, schedules = schedules,n_pat = n_pat,criterion = "I")$mat
+  i_opt_design_emax <- generate_optimal_design_emax(doses = doses, schedules = schedules,n_pat = n_pat,criterion = "I",
+                                                    emax_d = alpha1, ed50_d = delta1, emax_s = alpha2, ed50_s = delta2)$mat
+
+
 
 
   sum_1 = get_alloc(results, scenario, 1)
@@ -269,11 +278,18 @@ get_MED_alloc_no_interim <- function(results, scenario, mat) {
   true_med <- results[[scenario]][["true_med"]][[1]]
   pos_true_med <- which(true_med > 0)[1]
 
-  matrix <- readRDS(paste0("../ma-thesis-sims/data/alloc_mat_no_interim",mat,".RDS"))
-  d_opt_design_linear <- as.matrix(matrix[[1]])
-  d_opt_design_emax <- as.matrix(matrix[[2]])
-  i_opt_design_linear <- as.matrix(matrix[[3]])
-  i_opt_design_emax <- as.matrix(matrix[[4]])
+  alpha1 <- results[[scenario]]$alpha1[[1]]
+  alpha2 <- results[[scenario]]$alpha2[[1]]
+  delta1 <- results[[scenario]]$delta1[[1]]
+  delta2 <- results[[scenario]]$delta2[[1]]
+  n_pat <- results[[scenario]]$n_pat[[1]]
+  d_opt_design_linear <- generate_optimal_design_linear(doses = doses, schedules = schedules, n_pat = n_pat)$mat
+  d_opt_design_emax <- generate_optimal_design_emax(doses = doses, schedules = schedules,n_pat = n_pat,
+                                                    emax_d = alpha1, ed50_d = delta1, emax_s = alpha2, ed50_s = delta2)$mat
+  i_opt_design_linear <- generate_optimal_design_linear(doses = doses, schedules = schedules,n_pat = n_pat,criterion = "I")$mat
+  i_opt_design_emax <- generate_optimal_design_emax(doses = doses, schedules = schedules,n_pat = n_pat,criterion = "I",
+                                                    emax_d = alpha1, ed50_d = delta1, emax_s = alpha2, ed50_s = delta2)$mat
+
 
   sum_1 = get_alloc(results, scenario, 1)
   sum_2 = get_alloc(results, scenario, 2)
@@ -602,11 +618,19 @@ get_ABIC_score <- function(results, scenario, abic, med, method, GoNoGo_Threshol
         schedules = results[[scenario]]$schedules[[1]],
         n_pat = results[[scenario]]$n_pat[[1]] * 0.5
       )
-      matrix <- readRDS(paste0("../ma-thesis-sims/data/alloc_mat",mat,".RDS"))
-      d_opt_design_linear <- as.matrix(matrix[[1]][[1]])
-      d_opt_design_emax <- as.matrix(matrix[[1]][[2]])
-      i_opt_design_linear <- as.matrix(matrix[[1]][[3]])
-      i_opt_design_emax <- as.matrix(matrix[[1]][[4]])
+      alpha1 <- results[[scenario]]$alpha1[[1]]
+      alpha2 <- results[[scenario]]$alpha2[[1]]
+      delta1 <- results[[scenario]]$delta1[[1]]
+      delta2 <- results[[scenario]]$delta2[[1]]
+      n_pat <- results[[scenario]]$n_pat[[1]] * 0.5
+      d_opt_design_linear <- generate_optimal_design_linear(doses = doses, schedules = schedules, n_pat = n_pat)$mat
+      d_opt_design_emax <- generate_optimal_design_emax(doses = doses, schedules = schedules,n_pat = n_pat,
+                                                        emax_d = alpha1, ed50_d = delta1, emax_s = alpha2, ed50_s = delta2)$mat
+      i_opt_design_linear <- generate_optimal_design_linear(doses = doses, schedules = schedules,n_pat = n_pat,criterion = "I")$mat
+      i_opt_design_emax <- generate_optimal_design_emax(doses = doses, schedules = schedules,n_pat = n_pat,criterion = "I",
+                                                        emax_d = alpha1, ed50_d = delta1, emax_s = alpha2, ed50_s = delta2)$mat
+
+
 
       true_med <- results[[scenario]][["true_med"]][[1]]
       pos_true_med <- which(true_med > 0)[1]
@@ -728,11 +752,19 @@ get_ABIC_score <- function(results, scenario, abic, med, method, GoNoGo_Threshol
       true_med <- results[[scenario]][["true_med"]][[1]]
       pos_true_med <- which(true_med > 0)[1]
 
-      matrix <- readRDS(paste0("../ma-thesis-sims/data/alloc_mat_no_interim",mat,".RDS"))
-      d_opt_design_linear <- as.matrix(matrix[[1]])
-      d_opt_design_emax <- as.matrix(matrix[[2]])
-      i_opt_design_linear <- as.matrix(matrix[[3]])
-      i_opt_design_emax <- as.matrix(matrix[[4]])
+      alpha1 <- results[[scenario]]$alpha1[[1]]
+      alpha2 <- results[[scenario]]$alpha2[[1]]
+      delta1 <- results[[scenario]]$delta1[[1]]
+      delta2 <- results[[scenario]]$delta2[[1]]
+      n_pat <- results[[scenario]]$n_pat[[1]]
+      d_opt_design_linear <- generate_optimal_design_linear(doses = doses, schedules = schedules, n_pat = n_pat)$mat
+      d_opt_design_emax <- generate_optimal_design_emax(doses = doses, schedules = schedules,n_pat = n_pat,
+                                                        emax_d = alpha1, ed50_d = delta1, emax_s = alpha2, ed50_s = delta2)$mat
+      i_opt_design_linear <- generate_optimal_design_linear(doses = doses, schedules = schedules,n_pat = n_pat,criterion = "I")$mat
+      i_opt_design_emax <- generate_optimal_design_emax(doses = doses, schedules = schedules,n_pat = n_pat,criterion = "I",
+                                                        emax_d = alpha1, ed50_d = delta1, emax_s = alpha2, ed50_s = delta2)$mat
+
+
       sum_mat1_d = d_opt_design_linear[pos_true_med]
       sum_mat2_d = d_opt_design_emax[pos_true_med]
       sum_mat1_i = i_opt_design_linear[pos_true_med]
