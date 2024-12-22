@@ -1,0 +1,19 @@
+url: https://xyarz.github.io/DoseScheduleOptimizeR/
+template:
+  bootstrap: 5
+
+navbar:
+  structure:
+    left:  [intro, articles, reference, news]
+    right: [search, github]
+
+articles:
+- title: Get started
+  navbar: ~
+  contents:
+  - Getting_Started
+
+reference:
+- title: "Package documentation"
+  contents:
+  - DoseScheduleOptimizeR
