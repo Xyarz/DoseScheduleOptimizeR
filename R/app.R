@@ -2,7 +2,7 @@
 
 #' Title
 #'
-#' @return tbd
+#' @return shinyapp
 #' @export
 runApp <- function() {
 

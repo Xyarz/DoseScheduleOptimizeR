@@ -101,9 +101,9 @@ scenarios_table <- tibble::tribble(
 )
 
 # scenario generating function - add each scenario here
-#' Title
+#' @title get_scenario
 #'
-#' @param scenario_label  tbd
+#' @param scenario_label  returns the chosen scenario row
 #'
 #' @return df
 #' @export

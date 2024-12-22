@@ -2,20 +2,20 @@
 % Please edit documentation in R/calculations.R
 \name{get_effect_true}
 \alias{get_effect_true}
-\title{Title}
+\title{get_effect_true}
 \usage{
 get_effect_true(results, scenario, var)
 }
 \arguments{
-\item{results}{tbd}
+\item{results}{results dataset}
 
-\item{scenario}{tbd}
+\item{scenario}{numeric value of scenario}
 
-\item{var}{tbd}
+\item{var}{variable to be looked at, numeric}
 }
 \value{
-tbd
+sum numeric value of the effect
 }
 \description{
-Title
+get_effect_true
 }

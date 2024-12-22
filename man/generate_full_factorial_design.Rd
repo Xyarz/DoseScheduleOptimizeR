@@ -2,20 +2,20 @@
 % Please edit documentation in R/data_generation.R
 \name{generate_full_factorial_design}
 \alias{generate_full_factorial_design}
-\title{Title}
+\title{generate_full_factorial_design}
 \usage{
 generate_full_factorial_design(doses, schedules, n_pat)
 }
 \arguments{
-\item{doses}{tbd}
+\item{doses}{the dose levels}
 
-\item{schedules}{tbd}
+\item{schedules}{the schedules}
 
-\item{n_pat}{tbd}
+\item{n_pat}{sample size to be allocated across the factorial space}
 }
 \value{
 matrix
 }
 \description{
-Title
+generate_full_factorial_design
 }

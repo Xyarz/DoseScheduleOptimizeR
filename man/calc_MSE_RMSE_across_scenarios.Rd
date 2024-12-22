@@ -2,20 +2,20 @@
 % Please edit documentation in R/calculations.R
 \name{calc_MSE_RMSE_across_scenarios}
 \alias{calc_MSE_RMSE_across_scenarios}
-\title{Title}
+\title{calc_MSE_RMSE_across_scenarios}
 \usage{
 calc_MSE_RMSE_across_scenarios(results, scenario, interim)
 }
 \arguments{
-\item{results}{tbd}
+\item{results}{results dataset}
 
-\item{scenario}{tbd}
+\item{scenario}{numeric value of scenario}
 
-\item{interim}{tbd}
+\item{interim}{boolean, whether interim was conducted or not}
 }
 \value{
-tbd
+list containg MSE and RMSE
 }
 \description{
-Title
+calc_MSE_RMSE_across_scenarios
 }

@@ -2,20 +2,20 @@
 % Please edit documentation in R/data_generation.R
 \name{generate_custom_corner_mid}
 \alias{generate_custom_corner_mid}
-\title{Title}
+\title{generate_custom_corner_mid}
 \usage{
 generate_custom_corner_mid(doses, schedules, n_pat)
 }
 \arguments{
-\item{doses}{tbd}
+\item{doses}{dose levels}
 
-\item{schedules}{tbd}
+\item{schedules}{schedule levels}
 
-\item{n_pat}{tbd}
+\item{n_pat}{sample size to be allocated across the factorial space}
 }
 \value{
 matrix
 }
 \description{
-Title
+generate_custom_corner_mid
 }

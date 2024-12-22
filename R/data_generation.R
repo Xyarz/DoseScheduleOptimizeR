@@ -1,9 +1,9 @@
 
-#' Title
+#' @title generate_full_factorial_design
 #'
-#' @param doses tbd
-#' @param schedules tbd
-#' @param n_pat tbd
+#' @param doses the dose levels
+#' @param schedules the schedules
+#' @param n_pat sample size to be allocated across the factorial space
 #'
 #' @return matrix
 #' @export
@@ -46,13 +46,14 @@ generate_full_factorial_design <- function(
   return(create_matrix())
 }
 
-#' Title
+#' @title generate_optimal_design_linear
 #'
-#' @param doses tbd
-#' @param schedules tbd
-#' @param n_pat tbd
-#' @param criterion tbd
-#' @param random_order tbd
+#' @param doses doses
+#' @param schedules schedules
+#' @param n_pat sample size to be allocated across the factorial space
+#' @param criterion optimality criteria, default "D"
+#' @param random_order boolean, default TRUE
+#' @param interaction boolean, default TRUE
 #'
 #' @return matrix
 #' @export
@@ -106,18 +107,18 @@ generate_optimal_design_linear <- function(
 }
 
 
-#' Title
+#' @title generate_optimal_design_emax
 #'
-#' @param doses  tbd
-#' @param schedules  tbd
-#' @param n_pat  tbd
-#' @param criterion  tbd
-#' @param random_order  tbd
-#' @param emax_d  tbd
-#' @param ed50_d  tbd
-#' @param emax_s  tbd
-#' @param ed50_s  tbd
-#' @param interaction  tbd
+#' @param doses  doses
+#' @param schedules  schedules
+#' @param n_pat  sample size to be allocated across the factorial space
+#' @param criterion  optimality criteria, default "D"
+#' @param random_order  boolean, default TRUE
+#' @param emax_d  EMax of the doses
+#' @param ed50_d  ED50 of the doses
+#' @param emax_s  EMax of the schedules
+#' @param ed50_s  ED50 of the schedules
+#' @param interaction  boolean, default TRUE
 #'
 #' @return matrix
 #' @export
@@ -175,11 +176,11 @@ generate_optimal_design_emax <- function(
 }
 
 
-#' Title
+#' @title generate_custom_corner_mid
 #'
-#' @param doses  tbd
-#' @param schedules  tbd
-#' @param n_pat  tbd
+#' @param doses  dose levels
+#' @param schedules  schedule levels
+#' @param n_pat  sample size to be allocated across the factorial space
 #'
 #' @return matrix
 #' @export
@@ -233,11 +234,11 @@ generate_custom_corner_mid <- function(
   return(mat)
 }
 
-#' Title
+#' @title generate_custom
 #'
-#' @param doses  tbd
-#' @param schedules  tbd
-#' @param n_pat  tbd
+#' @param doses  dose levels
+#' @param schedules  schedule levels
+#' @param n_pat  sample size to be allocated across the factorial space
 #'
 #' @return matrix
 #' @export
@@ -291,10 +292,10 @@ generate_custom <- function(
   return(mat)
 }
 
-#' Title
+#' @title generate_custom_design
 #'
-#' @param n_pat  tbd
-#' @param post_probs  tbd
+#' @param n_pat  number of patients allocated across the factorial space
+#' @param post_probs  posterior probabilities of the grid the patients should be allocated on
 #'
 #' @return matrix
 #' @export

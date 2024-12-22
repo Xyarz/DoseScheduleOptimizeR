@@ -2,22 +2,22 @@
 % Please edit documentation in R/calculations.R
 \name{get_AIC_BIC_scores_across}
 \alias{get_AIC_BIC_scores_across}
-\title{Title}
+\title{get_AIC_BIC_scores_across}
 \usage{
 get_AIC_BIC_scores_across(results, scenario, interim, gonogo_threshold)
 }
 \arguments{
-\item{results}{tbd}
+\item{results}{results dataset}
 
-\item{scenario}{tbd}
+\item{scenario}{numeric value of scenario}
 
-\item{interim}{tbd}
+\item{interim}{boolean, indicating whether an interim analysis has been conducted}
 
-\item{gonogo_threshold}{tbd}
+\item{gonogo_threshold}{gonogo threshold to be passed, e.g., 0.5}
 }
 \value{
-tbd
+dataframe
 }
 \description{
-Title
+get_AIC_BIC_scores_across
 }

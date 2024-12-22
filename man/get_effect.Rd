@@ -2,22 +2,22 @@
 % Please edit documentation in R/calculations.R
 \name{get_effect}
 \alias{get_effect}
-\title{Title}
+\title{get_effect}
 \usage{
 get_effect(results, scenario, likelihood, var)
 }
 \arguments{
-\item{results}{tbd}
+\item{results}{results dataset}
 
-\item{scenario}{tbd}
+\item{scenario}{numeric value of scenario}
 
-\item{likelihood}{tbd}
+\item{likelihood}{true model, either "linear" or "emax"}
 
-\item{var}{tbd}
+\item{var}{numeric value of the value to be looked at}
 }
 \value{
-tbd
+sum
 }
 \description{
-Title
+get_effect
 }

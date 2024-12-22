@@ -2,20 +2,20 @@
 % Please edit documentation in R/calculations.R
 \name{get_alloc}
 \alias{get_alloc}
-\title{Title}
+\title{get_alloc}
 \usage{
 get_alloc(results, scenario, mat)
 }
 \arguments{
-\item{results}{tbd}
+\item{results}{results dataset}
 
-\item{scenario}{tbd}
+\item{scenario}{numeric value of scenario}
 
-\item{mat}{tbd}
+\item{mat}{matrix to be looked at}
 }
 \value{
-tbd
+sum
 }
 \description{
-Title
+get_alloc
 }

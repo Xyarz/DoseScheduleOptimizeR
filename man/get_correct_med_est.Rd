@@ -2,14 +2,14 @@
 % Please edit documentation in R/calculations.R
 \name{get_correct_med_est}
 \alias{get_correct_med_est}
-\title{Title}
+\title{get_correct_med_est}
 \usage{
 get_correct_med_est(results, scenario, likelihood, var)
 }
 \arguments{
-\item{results}{tbd}
+\item{results}{results dataset}
 
-\item{scenario}{tbd}
+\item{scenario}{numeric value of scenario}
 
 \item{likelihood}{tbd}
 
@@ -19,5 +19,5 @@ get_correct_med_est(results, scenario, likelihood, var)
 tbd
 }
 \description{
-Title
+get_correct_med_est
 }

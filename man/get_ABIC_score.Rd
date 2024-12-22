@@ -2,26 +2,27 @@
 % Please edit documentation in R/calculations.R
 \name{get_ABIC_score}
 \alias{get_ABIC_score}
-\title{Title}
+\title{get_ABIC_score}
 \usage{
 get_ABIC_score(results, scenario, abic, med, method, GoNoGo_Threshold)
 }
 \arguments{
-\item{results}{tbd}
+\item{results}{results dataset}
 
-\item{scenario}{tbd}
+\item{scenario}{numeric value of scenario}
 
-\item{abic}{tbd}
+\item{abic}{location of AIC/BIC values}
 
-\item{med}{tbd}
+\item{med}{location of MED}
 
-\item{method}{tbd}
+\item{method}{for which option sum should get calulated. Options are:
+"gonogo", "corr_med", "mse", "rmse", "pat_alloc"}
 
-\item{GoNoGo_Threshold}{tbd}
+\item{GoNoGo_Threshold}{gonogo threshold to be passed, e.g., 0.5}
 }
 \value{
-tbd
+sum
 }
 \description{
-Title
+get_ABIC_score
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/data_generation.R
 \name{generate_optimal_design_emax}
 \alias{generate_optimal_design_emax}
-\title{Title}
+\title{generate_optimal_design_emax}
 \usage{
 generate_optimal_design_emax(
   doses,
@@ -18,29 +18,29 @@ generate_optimal_design_emax(
 )
 }
 \arguments{
-\item{doses}{tbd}
+\item{doses}{doses}
 
-\item{schedules}{tbd}
+\item{schedules}{schedules}
 
-\item{n_pat}{tbd}
+\item{n_pat}{sample size to be allocated across the factorial space}
 
-\item{criterion}{tbd}
+\item{criterion}{optimality criteria, default "D"}
 
-\item{random_order}{tbd}
+\item{random_order}{boolean, default TRUE}
 
-\item{emax_d}{tbd}
+\item{emax_d}{EMax of the doses}
 
-\item{ed50_d}{tbd}
+\item{ed50_d}{ED50 of the doses}
 
-\item{emax_s}{tbd}
+\item{emax_s}{EMax of the schedules}
 
-\item{ed50_s}{tbd}
+\item{ed50_s}{ED50 of the schedules}
 
-\item{interaction}{tbd}
+\item{interaction}{boolean, default TRUE}
 }
 \value{
 matrix
 }
 \description{
-Title
+generate_optimal_design_emax
 }

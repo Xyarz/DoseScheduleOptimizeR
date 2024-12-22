@@ -2,26 +2,26 @@
 % Please edit documentation in R/helper.R
 \name{analysis_emax}
 \alias{analysis_emax}
-\title{Title}
+\title{analysis_emax}
 \usage{
 analysis_emax(design, doses, schedules, n_pat, likelihood, threshold)
 }
 \arguments{
-\item{design}{tbd}
+\item{design}{teh design matrix to be evaluated}
 
-\item{doses}{tbd}
+\item{doses}{dose levels}
 
-\item{schedules}{tbd}
+\item{schedules}{schedule levels}
 
-\item{n_pat}{tbd}
+\item{n_pat}{sample size to be evaluated}
 
-\item{likelihood}{tbd}
+\item{likelihood}{either "linear" or "emax" - true model}
 
-\item{threshold}{tbd}
+\item{threshold}{placebo adjusted threshold, teh effect has to pass to being considered an MED}
 }
 \value{
-design
+response_design containing MED, effect, AIC, BIC as attributes
 }
 \description{
-Title
+analysis_emax
 }

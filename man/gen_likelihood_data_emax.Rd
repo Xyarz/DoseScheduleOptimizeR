@@ -2,7 +2,7 @@
 % Please edit documentation in R/data_analysis.R
 \name{gen_likelihood_data_emax}
 \alias{gen_likelihood_data_emax}
-\title{Title}
+\title{gen_likelihood_data_emax}
 \usage{
 gen_likelihood_data_emax(
   data_mat,
@@ -18,27 +18,27 @@ gen_likelihood_data_emax(
 )
 }
 \arguments{
-\item{data_mat}{tbd}
+\item{data_mat}{matrix}
 
-\item{initial_E0}{tbd}
+\item{initial_E0}{prior of the E0}
 
-\item{initial_alpha1}{tbd}
+\item{initial_alpha1}{prior of the doses EMax}
 
-\item{initial_alpha2}{tbd}
+\item{initial_alpha2}{prior of the schedules EMax}
 
-\item{initial_delta1}{tbd}
+\item{initial_delta1}{prior of the doses ED50}
 
-\item{initial_delta2}{tbd}
+\item{initial_delta2}{prior of the schedules ED50}
 
-\item{initial_beta}{tbd}
+\item{initial_beta}{interaction}
 
-\item{initial_sigma_mu}{tbd}
+\item{initial_sigma_mu}{mean of epsilon}
 
-\item{initial_sigma_sd}{tbd}
+\item{initial_sigma_sd}{sigma}
 }
 \value{
-tbd
+res a list containing patient level data
 }
 \description{
-Title
+gen_likelihood_data_emax
 }

@@ -2,20 +2,20 @@
 % Please edit documentation in R/data_generation.R
 \name{generate_custom}
 \alias{generate_custom}
-\title{Title}
+\title{generate_custom}
 \usage{
 generate_custom(doses, schedules, n_pat)
 }
 \arguments{
-\item{doses}{tbd}
+\item{doses}{dose levels}
 
-\item{schedules}{tbd}
+\item{schedules}{schedule levels}
 
-\item{n_pat}{tbd}
+\item{n_pat}{sample size to be allocated across the factorial space}
 }
 \value{
 matrix
 }
 \description{
-Title
+generate_custom
 }

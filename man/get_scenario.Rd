@@ -2,16 +2,16 @@
 % Please edit documentation in R/get_scenarios.R
 \name{get_scenario}
 \alias{get_scenario}
-\title{Title}
+\title{get_scenario}
 \usage{
 get_scenario(scenario_label)
 }
 \arguments{
-\item{scenario_label}{tbd}
+\item{scenario_label}{returns the chosen scenario row}
 }
 \value{
 df
 }
 \description{
-Title
+get_scenario
 }

@@ -1,11 +1,11 @@
 # tar_load(trialsims)
 
-#' Title
+#' @title calculate_columns
 #'
-#' @param scenario_row tbd
-#' @param trialsims  tbd
+#' @param scenario_row the row of the scenario table
+#' @param trialsims  the result dataset - potentially a targets object
 #'
-#' @return tbd
+#' @return result dataframe containing all relevent information for that scenario
 #' @export
 calculate_columns <- function(scenario_row, trialsims) {
   scenario_label <- scenario_row$scenario_label

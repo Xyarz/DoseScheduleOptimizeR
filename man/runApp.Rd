@@ -7,7 +7,7 @@
 runApp()
 }
 \value{
-tbd
+shinyapp
 }
 \description{
 Title

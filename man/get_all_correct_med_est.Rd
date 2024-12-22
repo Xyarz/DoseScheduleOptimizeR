@@ -2,20 +2,20 @@
 % Please edit documentation in R/calculations.R
 \name{get_all_correct_med_est}
 \alias{get_all_correct_med_est}
-\title{Title}
+\title{get_all_correct_med_est}
 \usage{
 get_all_correct_med_est(results, scenario, interim)
 }
 \arguments{
-\item{results}{tbd}
+\item{results}{results dataset}
 
-\item{scenario}{tbd}
+\item{scenario}{numeric value of scenario}
 
-\item{interim}{tbd}
+\item{interim}{boolean, indicating whether an interim analysis has been conducted}
 }
 \value{
-tbd
+list
 }
 \description{
-Title
+get_all_correct_med_est
 }

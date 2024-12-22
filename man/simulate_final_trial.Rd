@@ -28,48 +28,48 @@ simulate_final_trial(
 )
 }
 \arguments{
-\item{scenario_label}{the label}
+\item{scenario_label}{the label fo the scenario}
 
-\item{doses}{tbd}
+\item{doses}{the dose levels to be investigated}
 
-\item{schedules}{tbd}
+\item{schedules}{the schedules do be used}
 
-\item{threshold}{tbd}
+\item{threshold}{the threshold the placebo adjusted effect has to pass in order to become an MED}
 
-\item{alloc_mat}{tbd}
+\item{alloc_mat}{the allocation matrix to be used}
 
-\item{n_pat}{tbd}
+\item{n_pat}{the overall sample size of the trial}
 
-\item{interim}{tbd}
+\item{interim}{boolean, whether an interim analysis should be performed or not}
 
-\item{likelihood}{tbd}
+\item{likelihood}{character string - either "linear" or "emax" - represents the true underlying model}
 
-\item{E0}{tbd}
+\item{E0}{the $E_0$ value of the EMAX model}
 
-\item{alpha1}{tbd}
+\item{alpha1}{$E_{max}$ value of the doses}
 
-\item{alpha2}{tbd}
+\item{alpha2}{$E_{max}$ value of the schedules}
 
-\item{delta1}{tbd}
+\item{delta1}{$ED_{50}$ value of the doses}
 
-\item{delta2}{tbd}
+\item{delta2}{$ED_{50}$ value of the schedules}
 
-\item{beta}{tbd}
+\item{beta}{interaction term for the EMAX model}
 
-\item{sig_mu}{tbd}
+\item{sig_mu}{mean of the error term}
 
-\item{sig_sd}{tbd}
+\item{sig_sd}{sigma of the error term}
 
-\item{beta0}{tbd}
+\item{beta0}{intercept of the linear model}
 
-\item{beta1}{tbd}
+\item{beta1}{coefficient of the doses}
 
-\item{beta2}{tbd}
+\item{beta2}{coefficient of the schedules}
 
-\item{beta3}{tbd}
+\item{beta3}{interaction term of the linear model}
 }
 \value{
-df
+out a tibble containing the results
 }
 \description{
 simulate_final_trial

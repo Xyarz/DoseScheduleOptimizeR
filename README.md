@@ -21,19 +21,21 @@ library(DoseScheduleOptimizeR)
 DoseScheduleOptimizeR::runApp()
 ```
 
-Inside the R Package, there is also an R Shiny application available. The aim of the application is briefly investigate some simulations and changes yourself. When opening the application, one will find themselves on a Landing page, as depicted below. On the left side, there are all the parameters being necessary for the simulation to run, with usable default values for direct interaction. At the bottom on the left side, there is a button, which states "run sims". If that is being pressed, all changes on the parameters are assessed and if needed the simulation is being re-run. The Landing page also provides a tabular overview of the available scenarios that can be investigated. Right now, the application is restricted to one iteration and the pre-specified scenarios (93 in total). The goal for the future is to open that up completely and let the user fully choose what parameter combinations to run.
+The aim of the application is to provide the option to look into all 93 scenarios created in this research across tables and visualizations provided in this thesis. The data and tables for this have been attached to the R package inside the inst/data folder in RDS format and the heatmap visualizations of the MED probabilities and the respective effects are calculated based on the scenario selection made by the user, that can be found inside a drop-down menu on the left side. In the following there are a couple screenshots, displaying the capabilities and tools available inside the application.
+
+Firstly, there is the Landing page, if you start the application, one will find as aforementioned a drop-down selection for the scenario to be looked at on the left side and in the middle a tabular overview of the parameters chosen for each of the 93 available scenarios.
 
 ![Landing Page](inst/img/landing_page.png)
 
+Secondly, one can see the tabular overview of the performance measurements for the chosen scenario.
+
 ![Tabular Overview](inst/img/table.png)
 
-This figure depicts, the second tab of the application, which shows the tabular overview of the simulation results, similar to those shown within this thesis.
-
-Here, we can see the third tab of the app, which showcases the MED probabilities heatmaps for the chosen scenario.
+Here, the user can investigate the MED probabilities on the factorial space across designs and evaluation model.
 
 ![MED Probabilities](inst/img/props.png)
 
-The last tab of the application shows the MED effect heatmaps of the ran scenario.
+Lastly, Here, the user can investigate the placebo adjusted MED effects that surpassed the pre-defined threshold on the factorial space across designs and evaluation model.
 
 ![MED Effects](inst/img/effects.png)
 

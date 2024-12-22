@@ -2,18 +2,18 @@
 % Please edit documentation in R/helper.R
 \name{get_post_for_quantile_samples_linear}
 \alias{get_post_for_quantile_samples_linear}
-\title{Title}
+\title{get_post_for_quantile_samples_linear}
 \usage{
 get_post_for_quantile_samples_linear(samples, quantile = 0.5)
 }
 \arguments{
-\item{samples}{tbd}
+\item{samples}{posterior samples}
 
-\item{quantile}{tbd}
+\item{quantile}{quantile to be evaluated}
 }
 \value{
-quantiles  tbd
+quantiles  respective posterior quantiles
 }
 \description{
-Title
+get_post_for_quantile_samples_linear
 }

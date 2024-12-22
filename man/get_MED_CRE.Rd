@@ -2,22 +2,22 @@
 % Please edit documentation in R/helper.R
 \name{get_MED_CRE}
 \alias{get_MED_CRE}
-\title{Title}
+\title{get_MED_CRE}
 \usage{
 get_MED_CRE(doses, schedules, lb, threshold)
 }
 \arguments{
-\item{doses}{tbd}
+\item{doses}{the doses}
 
-\item{schedules}{tbd}
+\item{schedules}{the schedules}
 
-\item{lb}{tbd}
+\item{lb}{lower boundary of the posterior samples}
 
-\item{threshold}{tbd}
+\item{threshold}{placebo adjusted threshold, teh effect has to pass to being considered an MED}
 }
 \value{
 list
 }
 \description{
-Title
+get_MED_CRE
 }

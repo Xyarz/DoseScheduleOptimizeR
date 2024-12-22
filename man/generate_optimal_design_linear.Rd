@@ -2,7 +2,7 @@
 % Please edit documentation in R/data_generation.R
 \name{generate_optimal_design_linear}
 \alias{generate_optimal_design_linear}
-\title{Title}
+\title{generate_optimal_design_linear}
 \usage{
 generate_optimal_design_linear(
   doses,
@@ -14,19 +14,21 @@ generate_optimal_design_linear(
 )
 }
 \arguments{
-\item{doses}{tbd}
+\item{doses}{doses}
 
-\item{schedules}{tbd}
+\item{schedules}{schedules}
 
-\item{n_pat}{tbd}
+\item{n_pat}{sample size to be allocated across the factorial space}
 
-\item{criterion}{tbd}
+\item{criterion}{optimality criteria, default "D"}
 
-\item{random_order}{tbd}
+\item{random_order}{boolean, default TRUE}
+
+\item{interaction}{boolean, default TRUE}
 }
 \value{
 matrix
 }
 \description{
-Title
+generate_optimal_design_linear
 }

@@ -1,15 +1,15 @@
 
-#' Title
+#' @title gen_likelihood_data_linear
 #'
-#' @param data_mat tbd
-#' @param initial_beta0 tbd
-#' @param initial_beta1 tbd
-#' @param initial_beta2 tbd
-#' @param initial_beta3 tbd
-#' @param initial_sigma_mu tbd
-#' @param initial_sigma_sd tbd
+#' @param data_mat matrix
+#' @param initial_beta0 prior of beta0
+#' @param initial_beta1 prior of coefficient for doses
+#' @param initial_beta2 prior of coefficient for schedukles
+#' @param initial_beta3 prior for interaction
+#' @param initial_sigma_mu prior for mean of epsilon
+#' @param initial_sigma_sd prior of sigma
 #'
-#' @return tbd
+#' @return res a list containing patient level data
 #' @export
 gen_likelihood_data_linear <- function(
     data_mat,
@@ -53,19 +53,19 @@ gen_likelihood_data_linear <- function(
   return(res)
 }
 
-#' Title
+#' @title gen_likelihood_data_emax
 #'
-#' @param data_mat  tbd
-#' @param initial_E0 tbd
-#' @param initial_alpha1 tbd
-#' @param initial_alpha2 tbd
-#' @param initial_delta1 tbd
-#' @param initial_delta2 tbd
-#' @param initial_beta tbd
-#' @param initial_sigma_mu tbd
-#' @param initial_sigma_sd tbd
+#' @param data_mat  matrix
+#' @param initial_E0 prior of the E0
+#' @param initial_alpha1 prior of the doses EMax
+#' @param initial_alpha2 prior of the schedules EMax
+#' @param initial_delta1 prior of the doses ED50
+#' @param initial_delta2 prior of the schedules ED50
+#' @param initial_beta interaction
+#' @param initial_sigma_mu mean of epsilon
+#' @param initial_sigma_sd sigma
 #'
-#' @return tbd
+#' @return res a list containing patient level data
 #' @export
 gen_likelihood_data_emax <- function(
     data_mat,
@@ -112,15 +112,20 @@ gen_likelihood_data_emax <- function(
 }
 
 
-#' Title
+#' @title linear
 #'
-#' @param data tbd
-#' @param n_chain tbd
-#' @param n_burn tbd
-#' @param n_sample tbd
-#' @param n_thin tbd
+#' @param data a matrix
+#' @param n_chain number of chains to be used for the JAGS model, default 3
+#' @param n_burn number of burn samples to be used for the JAGS model, default 1000
+#' @param n_sample number of samples to be used for the JAGS model, default 1000
+#' @param n_thin thinning rate to be used for the JAGS model, default 5
+#' @param doses doses
+#' @param schedules schedules
+#' @param n_pat sample size
+#' @param efficacy_threshold placebo adjusted threshold to be passed to be considered an MED
+#' @param likelihood_data likelihood patient level data
 #'
-#' @return tbd
+#' @return res, containing the patient level responses, as attributes also the MED, effect, all samples and patient level data
 #' @export
 linear <- function(
     data = n_matrix,
@@ -214,33 +219,26 @@ model {
   return(res)
 }
 
-#' Title
+#' @title calculate_MED_emax
 #'
-#' @param E0  tbd
-#' @param alpha1  tbd
-#' @param alpha2  tbd
-#' @param beta  tbd
-#' @param delta1  tbd
-#' @param delta2  tbd
-#' @param efficacy_threshold  tbd
-#' @param doses  tbd
-#' @param schedules  tbd
-#' @param med  tbd
-#' @param obs_effect  tbd
+#' @param E0  E0
+#' @param alpha1  EMax of doses
+#' @param alpha2  EMax of schedules
+#' @param beta  interaction
+#' @param delta1  ED50 of doses
+#' @param delta2  ED50 of schedules
+#' @param efficacy_threshold  placebo adjusted threshold to be passed to be considered an MED
+#' @param doses  doses
+#' @param schedules  schedules
+#' @param med  an empty matrix the med gets allocated on
+#' @param obs_effect  an empty matrix the observed effects gets allocated on
 #'
-#' @return tbd
+#' @return med and effect as attribute
 #' @export
 calculate_MED_emax <- function(E0, alpha1, alpha2, beta, delta1, delta2, efficacy_threshold, doses,
                           schedules, med, obs_effect) {
 
   placebo <- E0 + alpha1 * 0 / (delta1 + 0) + alpha2 * 1 / (delta2 + 1) + beta * 0 / (delta1 + 0) * 1 / (delta2 + 1)
-  # plot_res   <- 1e2
-  # dose_range <- seq(from       = min(doses),
-  #                 to         = max(doses),
-  #                 length.out = plot_res)
-  # schedule_range <- seq(from = min(schedules),
-  #                 to         = max(schedules),
-  #                 length.out = plot_res)
   dose_range <- doses
   schedule_range <- schedules
 
@@ -265,19 +263,19 @@ calculate_MED_emax <- function(E0, alpha1, alpha2, beta, delta1, delta2, efficac
   return(med)
 }
 
-#' Title
+#' @title calculate_MED_linear
 #'
-#' @param beta0  tbd
-#' @param beta1  tbd
-#' @param beta2  tbd
-#' @param beta3  tbd
-#' @param efficacy_threshold  tbd
-#' @param doses  tbd
-#' @param schedules  tbd
-#' @param med  tbd
-#' @param obs_effect  tbd
+#' @param beta0  beta0
+#' @param beta1  coefficient of doses
+#' @param beta2  coefficient of schedules
+#' @param beta3  interaction
+#' @param efficacy_threshold  placebo adjusted threshold to be passed to be considered an MED
+#' @param doses  doses
+#' @param schedules  schedules
+#' @param med  an empty matrix the med gets allocated on
+#' @param obs_effect  an empty matrix the observed effects gets allocated on
 #'
-#' @return tbd
+#' @return med and effect as attribute
 #' @export
 calculate_MED_linear <- function(beta0, beta1, beta2, beta3, efficacy_threshold, doses,
                                schedules, med, obs_effect) {
@@ -314,20 +312,20 @@ calculate_MED_linear <- function(beta0, beta1, beta2, beta3, efficacy_threshold,
   return(med)
 }
 
-#' Title
+#' @title emax
 #'
-#' @param data  tbd
-#' @param doses  tbd
-#' @param schedules  tbd
-#' @param n_chain  tbd
-#' @param n_burn  tbd
-#' @param n_sample  tbd
-#' @param n_thin  tbd
-#' @param n_pat  tbd
-#' @param efficacy_threshold  tbd
-#' @param likelihood_data  tbd
+#' @param data  matrix
+#' @param doses  doses
+#' @param schedules  schedules
+#' @param n_chain number of chains to be used for the JAGS model, default 3
+#' @param n_burn number of burn samples to be used for the JAGS model, default 1000
+#' @param n_sample number of samples to be used for the JAGS model, default 1000
+#' @param n_thin thinning rate to be used for the JAGS model, default 5
+#' @param n_pat  sample size
+#' @param efficacy_threshold  placebo adjusted threshold to be passed to be considered an MED
+#' @param likelihood_data  likelihood patient level data
 #'
-#' @return  tbd
+#' @return res, containing the patient level responses, as attributes also the MED, effect, all samples and patient level data
 #' @export
 emax <- function(
     data = n_matrix,

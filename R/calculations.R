@@ -1,13 +1,13 @@
 # RME ---------------------------------------------------------------------
 
 
-#' Title
+#' @title get_effect_true
 #'
-#' @param results  tbd
-#' @param scenario  tbd
-#' @param var  tbd
+#' @param results  results dataset
+#' @param scenario numeric value of scenario
+#' @param var  variable to be looked at, numeric
 #'
-#' @return tbd
+#' @return sum numeric value of the effect
 #' @export
 get_effect_true <- function(results, scenario, var) {
   sum <- numeric(length(results[[scenario]][[var]][[1]]))
@@ -23,14 +23,14 @@ get_effect_true <- function(results, scenario, var) {
   return(sum)
 }
 
-#' Title
+#' @title get_effect
 #'
-#' @param results  tbd
-#' @param scenario  tbd
-#' @param likelihood  tbd
-#' @param var  tbd
+#' @param results  results dataset
+#' @param scenario numeric value of scenario
+#' @param likelihood  true model, either "linear" or "emax"
+#' @param var  numeric value of the value to be looked at
 #'
-#' @return tbd
+#' @return sum
 #' @export
 get_effect <- function(results, scenario, likelihood, var) {
   sum <- numeric(length(results[[scenario]][[likelihood]]))
@@ -46,13 +46,13 @@ get_effect <- function(results, scenario, likelihood, var) {
   return(sum)
 }
 
-#' Title
+#' @title calc_MSE_RMSE_across_scenarios
 #'
-#' @param results  tbd
-#' @param scenario  tbd
-#' @param interim  tbd
+#' @param results  results dataset
+#' @param scenario numeric value of scenario
+#' @param interim  boolean, whether interim was conducted or not
 #'
-#' @return tbd
+#' @return list containg MSE and RMSE
 #' @export
 calc_MSE_RMSE_across_scenarios <- function(results, scenario, interim) {
   observed_effect_1_lin <- get_effect(results, scenario, "linear", 3)
@@ -148,13 +148,13 @@ calc_MSE_RMSE_across_scenarios <- function(results, scenario, interim) {
 
 # pats at med -------------------------------------------------------------
 
-#' Title
+#' @title get_alloc
 #'
-#' @param results  tbd
-#' @param scenario  tbd
-#' @param mat  tbd
+#' @param results  results dataset
+#' @param scenario numeric value of scenario
+#' @param mat  matrix to be looked at
 #'
-#' @return tbd
+#' @return sum
 #' @export
 get_alloc <- function(results, scenario, mat) {
   sum <- numeric(length(results[[scenario]][["linear"]]))
@@ -173,13 +173,13 @@ get_alloc <- function(results, scenario, mat) {
   return(sum_1)
 }
 
-#' Title
+#' @title get_MED_alloc
 #'
-#' @param results  tbd
-#' @param scenario  tbd
-#' @param mat  tbd
+#' @param results  results dataset
+#' @param scenario numeric value of scenario
+#' @param mat  matrix to be looked at
 #'
-#' @return tbd
+#' @return sum
 #' @export
 get_MED_alloc <- function(results, scenario, mat) {
 
@@ -260,13 +260,13 @@ get_MED_alloc <- function(results, scenario, mat) {
   return(res)
 }
 
-#' Title
+#' @title get_MED_alloc_no_interim
 #'
-#' @param results  tbd
-#' @param scenario  tbd
-#' @param mat  tbd
+#' @param results  results dataset
+#' @param scenario numeric value of scenario
+#' @param mat  matrix to be looked at
 #'
-#' @return tbd
+#' @return sum
 #' @export
 get_MED_alloc_no_interim <- function(results, scenario, mat) {
 
@@ -321,10 +321,10 @@ get_MED_alloc_no_interim <- function(results, scenario, mat) {
 
 # correct med -------------------------------------------------------------
 
-#' Title
+#' @title get_correct_med_est
 #'
-#' @param results  tbd
-#' @param scenario  tbd
+#' @param results  results dataset
+#' @param scenario numeric value of scenario
 #' @param likelihood  tbd
 #' @param var  tbd
 #'
@@ -345,13 +345,13 @@ get_correct_med_est <- function(results, scenario, likelihood, var) {
   return(sum_1)
 }
 
-#' Title
+#' @title get_all_correct_med_est
 #'
-#' @param results  tbd
-#' @param scenario  tbd
-#' @param interim  tbd
+#' @param results  results dataset
+#' @param scenario numeric value of scenario
+#' @param interim  boolean, indicating whether an interim analysis has been conducted
 #'
-#' @return tbd
+#' @return list
 #' @export
 get_all_correct_med_est <- function(results, scenario, interim){
   med_1 = get_correct_med_est(results, scenario, "linear", 1)
@@ -387,14 +387,14 @@ get_all_correct_med_est <- function(results, scenario, interim){
 
 # gonogo ------------------------------------------------------------------
 
-#' Title
+#' @title get_GoNoGo
 #'
-#' @param results  tbd
-#' @param scenario  tbd
-#' @param GoNoGo_Threshold  tbd
-#' @param interim  tbd
+#' @param results  results dataset
+#' @param scenario numeric value of scenario
+#' @param GoNoGo_Threshold  gonogo threshold to be passed, e.g., 0.5
+#' @param interim  boolean, indicating whether an interim analysis has been conducted
 #'
-#' @return tbd
+#' @return list
 #' @export
 get_GoNoGo <- function(results, scenario, GoNoGo_Threshold, interim) {
 
@@ -526,16 +526,17 @@ get_GoNoGo <- function(results, scenario, GoNoGo_Threshold, interim) {
 # AIC ---------------------------------------------------------------------
 
 
-#' Title
+#' @title get_ABIC_score
 #'
-#' @param results  tbd
-#' @param scenario  tbd
-#' @param abic  tbd
-#' @param med  tbd
-#' @param method  tbd
-#' @param GoNoGo_Threshold  tbd
+#' @param results  results dataset
+#' @param scenario numeric value of scenario
+#' @param abic  location of AIC/BIC values
+#' @param med  location of MED
+#' @param method  for which option sum should get calulated. Options are:
+#' "gonogo", "corr_med", "mse", "rmse", "pat_alloc"
+#' @param GoNoGo_Threshold  gonogo threshold to be passed, e.g., 0.5
 #'
-#' @return tbd
+#' @return sum
 #' @export
 get_ABIC_score <- function(results, scenario, abic, med, method, GoNoGo_Threshold) {
   mat <- results[[scenario]]$alloc_mat[[1]]
@@ -876,14 +877,14 @@ get_ABIC_score <- function(results, scenario, abic, med, method, GoNoGo_Threshol
   return(sum_1)
 }
 
-#' Title
+#' @title get_AIC_BIC_scores_across
 #'
-#' @param results tbd
-#' @param scenario  tbd
-#' @param interim  tbd
-#' @param gonogo_threshold  tbd
+#' @param results  results dataset
+#' @param scenario numeric value of scenario
+#' @param interim  boolean, indicating whether an interim analysis has been conducted
+#' @param gonogo_threshold  gonogo threshold to be passed, e.g., 0.5
 #'
-#' @return tbd
+#' @return dataframe
 #' @export
 get_AIC_BIC_scores_across <- function(results, scenario, interim, gonogo_threshold) {
   if(interim) {

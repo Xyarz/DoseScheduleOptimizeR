@@ -2,7 +2,7 @@
 % Please edit documentation in R/data_analysis.R
 \name{gen_likelihood_data_linear}
 \alias{gen_likelihood_data_linear}
-\title{Title}
+\title{gen_likelihood_data_linear}
 \usage{
 gen_likelihood_data_linear(
   data_mat,
@@ -16,23 +16,23 @@ gen_likelihood_data_linear(
 )
 }
 \arguments{
-\item{data_mat}{tbd}
+\item{data_mat}{matrix}
 
-\item{initial_beta0}{tbd}
+\item{initial_beta0}{prior of beta0}
 
-\item{initial_beta1}{tbd}
+\item{initial_beta1}{prior of coefficient for doses}
 
-\item{initial_beta2}{tbd}
+\item{initial_beta2}{prior of coefficient for schedukles}
 
-\item{initial_beta3}{tbd}
+\item{initial_beta3}{prior for interaction}
 
-\item{initial_sigma_mu}{tbd}
+\item{initial_sigma_mu}{prior for mean of epsilon}
 
-\item{initial_sigma_sd}{tbd}
+\item{initial_sigma_sd}{prior of sigma}
 }
 \value{
-tbd
+res a list containing patient level data
 }
 \description{
-Title
+gen_likelihood_data_linear
 }

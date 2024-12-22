@@ -2,18 +2,18 @@
 % Please edit documentation in R/data_cleaning.R
 \name{calculate_columns}
 \alias{calculate_columns}
-\title{Title}
+\title{calculate_columns}
 \usage{
 calculate_columns(scenario_row, trialsims)
 }
 \arguments{
-\item{scenario_row}{tbd}
+\item{scenario_row}{the row of the scenario table}
 
-\item{trialsims}{tbd}
+\item{trialsims}{the result dataset - potentially a targets object}
 }
 \value{
-tbd
+result dataframe containing all relevent information for that scenario
 }
 \description{
-Title
+calculate_columns
 }

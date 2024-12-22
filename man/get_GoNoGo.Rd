@@ -2,22 +2,22 @@
 % Please edit documentation in R/calculations.R
 \name{get_GoNoGo}
 \alias{get_GoNoGo}
-\title{Title}
+\title{get_GoNoGo}
 \usage{
 get_GoNoGo(results, scenario, GoNoGo_Threshold, interim)
 }
 \arguments{
-\item{results}{tbd}
+\item{results}{results dataset}
 
-\item{scenario}{tbd}
+\item{scenario}{numeric value of scenario}
 
-\item{GoNoGo_Threshold}{tbd}
+\item{GoNoGo_Threshold}{gonogo threshold to be passed, e.g., 0.5}
 
-\item{interim}{tbd}
+\item{interim}{boolean, indicating whether an interim analysis has been conducted}
 }
 \value{
-tbd
+list
 }
 \description{
-Title
+get_GoNoGo
 }

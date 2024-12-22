@@ -7,16 +7,16 @@
 get_resp(doses, schedules, quantiles, emax = FALSE, n_pat, patient_data)
 }
 \arguments{
-\item{doses}{tbd}
+\item{doses}{the dose levels to be evaluated}
 
-\item{schedules}{tbd}
+\item{schedules}{the schedules to be evaluated}
 
-\item{quantiles}{tbd}
+\item{quantiles}{the posterior quantiles to be passed}
 
-\item{emax}{tbd}
+\item{emax}{boolean, whether this is an emax model or not}
 }
 \value{
-resp
+resp containing the responses on patient level and the AIC/BIC as attributes
 }
 \description{
 get_resp

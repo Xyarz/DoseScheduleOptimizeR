@@ -1,27 +1,27 @@
-#' simulate_final_trial
+#' @title simulate_final_trial
 #'
-#' @param scenario_label the label
-#' @param doses tbd
-#' @param schedules tbd
-#' @param threshold tbd
-#' @param alloc_mat tbd
-#' @param n_pat tbd
-#' @param interim tbd
-#' @param likelihood tbd
-#' @param E0 tbd
-#' @param alpha1 tbd
-#' @param alpha2 tbd
-#' @param delta1 tbd
-#' @param delta2 tbd
-#' @param beta tbd
-#' @param sig_mu tbd
-#' @param sig_sd tbd
-#' @param beta0 tbd
-#' @param beta1 tbd
-#' @param beta2 tbd
-#' @param beta3 tbd
+#' @param scenario_label the label fo the scenario
+#' @param doses the dose levels to be investigated
+#' @param schedules the schedules do be used
+#' @param threshold the threshold the placebo adjusted effect has to pass in order to become an MED
+#' @param alloc_mat the allocation matrix to be used
+#' @param n_pat the overall sample size of the trial
+#' @param interim boolean, whether an interim analysis should be performed or not
+#' @param likelihood character string - either "linear" or "emax" - represents the true underlying model
+#' @param E0 the $E_0$ value of the EMAX model
+#' @param alpha1 $E_{max}$ value of the doses
+#' @param alpha2 $E_{max}$ value of the schedules
+#' @param delta1 $ED_{50}$ value of the doses
+#' @param delta2 $ED_{50}$ value of the schedules
+#' @param beta interaction term for the EMAX model
+#' @param sig_mu mean of the error term
+#' @param sig_sd sigma of the error term
+#' @param beta0 intercept of the linear model
+#' @param beta1 coefficient of the doses
+#' @param beta2 coefficient of the schedules
+#' @param beta3 interaction term of the linear model
 #'
-#' @return df
+#' @return out a tibble containing the results
 #' @export
 simulate_final_trial <- function(
     scenario_label = "null",

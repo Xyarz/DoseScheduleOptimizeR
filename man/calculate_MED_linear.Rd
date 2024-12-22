@@ -2,7 +2,7 @@
 % Please edit documentation in R/data_analysis.R
 \name{calculate_MED_linear}
 \alias{calculate_MED_linear}
-\title{Title}
+\title{calculate_MED_linear}
 \usage{
 calculate_MED_linear(
   beta0,
@@ -17,27 +17,27 @@ calculate_MED_linear(
 )
 }
 \arguments{
-\item{beta0}{tbd}
+\item{beta0}{beta0}
 
-\item{beta1}{tbd}
+\item{beta1}{coefficient of doses}
 
-\item{beta2}{tbd}
+\item{beta2}{coefficient of schedules}
 
-\item{beta3}{tbd}
+\item{beta3}{interaction}
 
-\item{efficacy_threshold}{tbd}
+\item{efficacy_threshold}{placebo adjusted threshold to be passed to be considered an MED}
 
-\item{doses}{tbd}
+\item{doses}{doses}
 
-\item{schedules}{tbd}
+\item{schedules}{schedules}
 
-\item{med}{tbd}
+\item{med}{an empty matrix the med gets allocated on}
 
-\item{obs_effect}{tbd}
+\item{obs_effect}{an empty matrix the observed effects gets allocated on}
 }
 \value{
-tbd
+med and effect as attribute
 }
 \description{
-Title
+calculate_MED_linear
 }

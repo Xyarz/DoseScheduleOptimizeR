@@ -2,7 +2,7 @@
 % Please edit documentation in R/data_analysis.R
 \name{linear}
 \alias{linear}
-\title{Title}
+\title{linear}
 \usage{
 linear(
   data = n_matrix,
@@ -18,19 +18,29 @@ linear(
 )
 }
 \arguments{
-\item{data}{tbd}
+\item{data}{a matrix}
 
-\item{n_chain}{tbd}
+\item{doses}{doses}
 
-\item{n_burn}{tbd}
+\item{schedules}{schedules}
 
-\item{n_sample}{tbd}
+\item{n_chain}{number of chains to be used for the JAGS model, default 3}
 
-\item{n_thin}{tbd}
+\item{n_burn}{number of burn samples to be used for the JAGS model, default 1000}
+
+\item{n_sample}{number of samples to be used for the JAGS model, default 1000}
+
+\item{n_thin}{thinning rate to be used for the JAGS model, default 5}
+
+\item{n_pat}{sample size}
+
+\item{efficacy_threshold}{placebo adjusted threshold to be passed to be considered an MED}
+
+\item{likelihood_data}{likelihood patient level data}
 }
 \value{
-tbd
+res, containing the patient level responses, as attributes also the MED, effect, all samples and patient level data
 }
 \description{
-Title
+linear
 }

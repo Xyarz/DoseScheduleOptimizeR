@@ -2,26 +2,26 @@
 % Please edit documentation in R/helper.R
 \name{analysis_linear}
 \alias{analysis_linear}
-\title{Title}
+\title{analysis_linear}
 \usage{
 analysis_linear(design, doses, schedules, n_pat, likelihood, threshold)
 }
 \arguments{
-\item{design}{tbd}
+\item{design}{the design matrix to be evaluated}
 
-\item{doses}{tbd}
+\item{doses}{the doses}
 
-\item{schedules}{tbd}
+\item{schedules}{the schedules}
 
-\item{n_pat}{tbd}
+\item{n_pat}{the overall to be evaluated}
 
-\item{likelihood}{tbd}
+\item{likelihood}{either "linear" or "emax" - true model}
 
-\item{threshold}{tbd}
+\item{threshold}{placebo adjusted threshold, the effect has to pass to being considered an MED}
 }
 \value{
-design
+response_design containing MED, effect, AIC, BIC as attributes
 }
 \description{
-Title
+analysis_linear
 }

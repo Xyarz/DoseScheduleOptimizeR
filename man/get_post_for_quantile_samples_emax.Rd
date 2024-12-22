@@ -2,18 +2,18 @@
 % Please edit documentation in R/helper.R
 \name{get_post_for_quantile_samples_emax}
 \alias{get_post_for_quantile_samples_emax}
-\title{Title}
+\title{get_post_for_quantile_samples_emax}
 \usage{
 get_post_for_quantile_samples_emax(samples, quantile = 0.5)
 }
 \arguments{
-\item{samples}{tbd}
+\item{samples}{posterior samples to be evaluated}
 
-\item{quantile}{tbd}
+\item{quantile}{the quantile to be used}
 }
 \value{
-quantiles  tbd
+quantiles  respective chosen posterior samples
 }
 \description{
-Title
+get_post_for_quantile_samples_emax
 }

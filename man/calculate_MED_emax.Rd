@@ -2,7 +2,7 @@
 % Please edit documentation in R/data_analysis.R
 \name{calculate_MED_emax}
 \alias{calculate_MED_emax}
-\title{Title}
+\title{calculate_MED_emax}
 \usage{
 calculate_MED_emax(
   E0,
@@ -19,31 +19,31 @@ calculate_MED_emax(
 )
 }
 \arguments{
-\item{E0}{tbd}
+\item{E0}{E0}
 
-\item{alpha1}{tbd}
+\item{alpha1}{EMax of doses}
 
-\item{alpha2}{tbd}
+\item{alpha2}{EMax of schedules}
 
-\item{beta}{tbd}
+\item{beta}{interaction}
 
-\item{delta1}{tbd}
+\item{delta1}{ED50 of doses}
 
-\item{delta2}{tbd}
+\item{delta2}{ED50 of schedules}
 
-\item{efficacy_threshold}{tbd}
+\item{efficacy_threshold}{placebo adjusted threshold to be passed to be considered an MED}
 
-\item{doses}{tbd}
+\item{doses}{doses}
 
-\item{schedules}{tbd}
+\item{schedules}{schedules}
 
-\item{med}{tbd}
+\item{med}{an empty matrix the med gets allocated on}
 
-\item{obs_effect}{tbd}
+\item{obs_effect}{an empty matrix the observed effects gets allocated on}
 }
 \value{
-tbd
+med and effect as attribute
 }
 \description{
-Title
+calculate_MED_emax
 }

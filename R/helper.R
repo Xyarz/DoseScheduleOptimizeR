@@ -1,9 +1,10 @@
-#' Title
+
+#' @title get_post_for_quantile_samples_linear
 #'
-#' @param samples  tbd
-#' @param quantile  tbd
+#' @param samples  posterior samples
+#' @param quantile  quantile to be evaluated
 #'
-#' @return quantiles  tbd
+#' @return quantiles  respective posterior quantiles
 #' @export
 get_post_for_quantile_samples_linear <- function(samples, quantile = 0.5) {
   quantiles <- list(
@@ -16,12 +17,12 @@ get_post_for_quantile_samples_linear <- function(samples, quantile = 0.5) {
   return(quantiles)
 }
 
-#' Title
+#' @title get_post_for_quantile_samples_emax
 #'
-#' @param samples  tbd
-#' @param quantile  tbd
+#' @param samples  posterior samples to be evaluated
+#' @param quantile  the quantile to be used
 #'
-#' @return quantiles  tbd
+#' @return quantiles  respective chosen posterior samples
 #' @export
 get_post_for_quantile_samples_emax <- function(samples, quantile = 0.5) {
   quantiles <- list(
@@ -36,70 +37,13 @@ get_post_for_quantile_samples_emax <- function(samples, quantile = 0.5) {
   return(quantiles)
 }
 
-#' Title
-#'
-#' @param all_mcmc  tbd
-#' @param w_prior  tbd
-#' @param data  tbd
-#'
-#' @return list
-#' @export
-get_bayesfactor <- function(all_mcmc, w_prior = c(1 / 2, 1 / 2), data) {
-  etas <- vapply(
-    all_mcmc,
-    function(x, data) epll(x, all_mcmc),
-    data = data,
-    FUN.VALUE = numeric(1)
-  )
-  w_prior <- w_prior[names(etas)]
-  # assert_names(etas, w_prior, "Naming issue with etas/w_prior.")
-  # log-sum-exp trick for numeric stability
-  a_s <- etas + log(w_prior)
-  a <- max(a_s)
-  w_post <- exp(a_s - (a + log(sum(exp(a_s - a)))))
-  names(w_post) <- names(all_mcmc)
-  return(list(w_prior = w_prior, w_post = w_post))
-}
 
-#' Title
+#' @title get_MED_CRE
 #'
-#' @param x  tbd
-#' @param post_samples  tbd
-#'
-#' @return numeric
-#' @export
-epll <- function(x, post_samples) {
-  sum_log_probs <- dnorm(
-    x,
-    mean(post_samples),
-    post_samples$sigma
-  ) %>%
-    mean() %>%
-    log() %>%
-    sum()
-
-  return(sum_log_probs)
-}
-
-#' Title
-#'
-#' @param epll  tbd
-#' @param q  tbd
-#'
-#' @return eta
-#' @export
-get_eta <- function(epll, q) {
-  eta <- epll - q / 2
-  return(eta)
-}
-
-
-#' Title
-#'
-#' @param doses tbd
-#' @param schedules tbd
-#' @param lb tbd
-#' @param threshold tbd
+#' @param doses the doses
+#' @param schedules the schedules
+#' @param lb lower boundary of the posterior samples
+#' @param threshold placebo adjusted threshold, teh effect has to pass to being considered an MED
 #'
 #' @return list
 #' @export
@@ -118,12 +62,12 @@ get_MED_CRE <- function(doses, schedules, lb, threshold) {
 
 #' @title get_resp
 #'
-#' @param doses tbd
-#' @param schedules tbd
-#' @param quantiles tbd
-#' @param emax tbd
+#' @param doses the dose levels to be evaluated
+#' @param schedules the schedules to be evaluated
+#' @param quantiles the posterior quantiles to be passed
+#' @param emax boolean, whether this is an emax model or not
 #'
-#' @return resp
+#' @return resp containing the responses on patient level and the AIC/BIC as attributes
 #' @export
 get_resp <- function(doses, schedules, quantiles, emax = FALSE, n_pat, patient_data) {
   res <- list()
@@ -155,16 +99,16 @@ get_resp <- function(doses, schedules, quantiles, emax = FALSE, n_pat, patient_d
   return(res)
 }
 
-#' Title
+#' @title analysis_linear
 #'
-#' @param design  tbd
-#' @param doses  tbd
-#' @param schedules  tbd
-#' @param n_pat  tbd
-#' @param likelihood  tbd
-#' @param threshold  tbd
+#' @param design  the design matrix to be evaluated
+#' @param doses  the doses
+#' @param schedules  the schedules
+#' @param n_pat  the overall to be evaluated
+#' @param likelihood  either "linear" or "emax" - true model
+#' @param threshold  placebo adjusted threshold, the effect has to pass to being considered an MED
 #'
-#' @return design
+#' @return response_design containing MED, effect, AIC, BIC as attributes
 #' @export
 analysis_linear <- function(design, doses, schedules, n_pat, likelihood, threshold) {
   post_samples_design <- linear(data = design, n_pat = n_pat, doses = doses, schedules = schedules, efficacy_threshold = threshold, likelihood = likelihood)
@@ -179,16 +123,16 @@ analysis_linear <- function(design, doses, schedules, n_pat, likelihood, thresho
   return(response_design)
 }
 
-#' Title
+#' @title analysis_emax
 #'
-#' @param design  tbd
-#' @param doses  tbd
-#' @param schedules  tbd
-#' @param n_pat  tbd
-#' @param likelihood  tbd
-#' @param threshold  tbd
+#' @param design  teh design matrix to be evaluated
+#' @param doses  dose levels
+#' @param schedules  schedule levels
+#' @param n_pat  sample size to be evaluated
+#' @param likelihood either "linear" or "emax" - true model
+#' @param threshold  placebo adjusted threshold, teh effect has to pass to being considered an MED
 #'
-#' @return design
+#' @return response_design containing MED, effect, AIC, BIC as attributes
 #' @export
 analysis_emax <- function(design, doses, schedules, n_pat, likelihood, threshold) {
   post_samples_design <- emax(data = design, n_pat = n_pat, doses = doses, schedules = schedules, efficacy_threshold = threshold, likelihood = likelihood)
