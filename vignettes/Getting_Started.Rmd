@@ -1,15 +1,21 @@
 ---
-title: "Getting Started"
+title: "Getting started with DoseScheduleOptimizeR"
 author: "Lars Andersen"
-output:
-  rmarkdown::html_vignette:
-    toc: true
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Getting Started}
+  %\VignetteIndexEntry{Getting started with DoseScheduleOptimizeR}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-## Introduction
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 
+# Introduction
 
+## Usage
