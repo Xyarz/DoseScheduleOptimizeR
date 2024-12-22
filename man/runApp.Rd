@@ -2,22 +2,13 @@
 % Please edit documentation in R/app.R
 \name{runApp}
 \alias{runApp}
-\title{runApp}
+\title{Title}
 \usage{
 runApp()
 }
-\arguments{
-\item{input}{tbd}
-
-\item{output}{tbd}
-
-\item{session}{tbd}
-}
 \value{
-tbd
-
 tbd
 }
 \description{
-runApp
+Title
 }

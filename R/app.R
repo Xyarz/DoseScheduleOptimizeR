@@ -1,6 +1,6 @@
 
 
-#' runApp
+#' Title
 #'
 #' @return tbd
 #' @export
@@ -51,14 +51,6 @@ runApp <- function() {
     )
   )
 
-  #' Title
-  #'
-  #' @param input tbd
-  #' @param output tbd
-  #' @param session tbd
-  #'
-  #' @return tbd
-  #' @export
   server <- function(input, output, session) {
 
     get_MED <- function(results, scenario, likelihood, var) {
