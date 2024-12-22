@@ -1,26 +1,3 @@
----
 url: https://xyarz.github.io/DoseScheduleOptimizeR/
-
 template:
   bootstrap: 5
-
-navbar:
-  structure:
-    left:
-      [get-started]
-    right: [search, github]
-  components:
-    get-started:
-      text: Get started
-      href: articles/Getting_started.html
-
-    github:
-      icon: fa-github
-      aria-label: View on Github
-      href: https://github.com/xyarz/DoseScheduleOptimizeR
-
-  articles:
-      - title: Getting Started
-        navbar: Getting Started
-        contents:
-          - Getting_Started
